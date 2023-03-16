@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/asset/style.css">
+    <link rel="stylesheet" href="/asset/fonts/fontawesome-free-6.2.0-web/css/all.css">
+    <title>Calender</title>
+</head>
+<body>
+    <!-- taskManager  -->
+    <div class="taskManager">
+        <!-- taskManager__header -->
+        <h1 class="taskManager__header">TASK MANAGER</h1>
+        <!-- profile  -->
+        <div class="taskManager__profile">
+            <div class="taskManager__profile-img">
+                
+            </div>
+            <div class="taskManager__profile-info">
+                <strong class="taskManager__profile-info-name">Nguyen Son</strong>
+                <div class="taskManager__profile-info-email">nguyenvanson26102000@gmail.com</div>
+            </div>
+            <div class="taskManager__profile-icon">
+                <div class="taskManager__profile-icon-setting">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div class="taskManager__profile-icon-message">
+                    <span class="taskManager__profile-icon-message-num">2</span>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="taskManager__profile-icon-notification">
+                    <span class="taskManager__profile-icon-notification-num">6</span>
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+            </div>
+            <div class="taskManager__profile__percent">
+                <div class="taskManager__profile__percent-num">
+                    <span class="taskManager__profile__percent-num-from">12</span>
+                    <span>/</span>
+                    <span class="taskManager__profile__percent-num-to">34</span>
+                </div>
+                <span class="taskManager__profile__percent-status"></span>
+            </div>
+            <div class="taskManager__profile__task">
+                <div class="taskManager__profile__task-box">
+                    <span class="taskManager__profile__task-box-complated-num">12</span>
+                    <span class="taskManager__profile__task-box-name">Complated <br> tasks</span>
+                </div>
+                <div class="taskManager__profile__task-box">
+                    <span class="taskManager__profile__task-box-todo-num">22</span>
+                    <span class="taskManager__profile__task-box-name">To do <br> task</span>
+                </div>
+                <div class="taskManager__profile__task-box">
+                    <span class="taskManager__profile__task-box-allcompleted-num">69</span>
+                    <span class="taskManager__profile__task-box-name">All <br> complated</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- project  -->
+        <div class="taskManager__projects">
+            <h2 class="taskManager__name">PROJECT</h2>
+            <div class="taskManager__projects-box">
+                <p class="taskManager__projects-marketing">Marketing</p>
+                <p class="taskManager__projects-design">Design</p>
+                <p class="taskManager__projects-development">Development</p>
+                <p class="taskManager__projects-finance">Finance</p>
+            </div>
+        </div>
+
+        <!-- team  -->
+        <div class="taskManager__team">
+            <h2 class="taskManager__name">TEAM</h2>
+            <div class="taskManager__team-avatar">
+                <img src="/asset/img/i1.jpg" alt="" >
+                <img src="/asset/img/i15.jpg" alt="" >
+                <img src="/asset/img/i3.jpg" alt="" >
+                <img src="/asset/img/i4.jpg" alt="" >
+                <img src="/asset/img/i42.jpg" alt="" >
+            </div>
+        </div>
+    </div>
+
+    <!-- calender  -->
+
+    <div class="calender">
+        <!-- header  -->
+        <div class="calender__header">
+            <div class="calender__header-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <h1 class="calender__header-title">Calendar</h1>
+            <div class="calender__header-more">
+                <span class="calender__header-more-dot"></span>
+                <span class="calender__header-more-dot"></span>
+                <span class="calender__header-more-dot"></span>
+            </div>
+        </div>
+        <!-- content1  -->
+        <div class="calender__content1">
+            <div class="calender__content1-option">
+                <p class="calender__content1-option-week calender__content1-option--active">Week</p>
+                <p class="calender__content1-option-month">Month</p>
+            </div>
+            <div class="calender__content1-month">
+                <div class="calender__content1-month-name">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <span>October</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <span class="calender__content1-month-num">2018</span>
+            </div>
+            <div class="calender__content1-box">
+                <span class="calender__content1-box-weekends">
+                    Weekends
+                </span>
+                <span class="calender__content1-box-addtask calender__content1-box--active">
+                    Add task
+                </span>
+            </div>
+        </div>
+        <!-- content2 -->
+        <div class="calender__content2">
+            <table class="calender__content2-table">
+                <tr class="calender__content2-table-day">
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+                <tr class="calender__content2-table-data calender__content2-table-data1">
+                    <td><span>31</span></td>
+                    <td>
+                        <span>1</span>
+                        <li>Sales report from last month</li>
+                        <li>Prepare offers for clients</li>
+                    </td>
+                    <td><span>2</span></td>
+                    <td>
+                        <span>3</span>
+                        <li>Sales report from last month</li>
+                        <li>Prepare offers for clients</li>
+                    </td>
+                    <td>
+                        <span>4</span>
+                    </td>
+                    <td><span>5</span></td>
+                    <td><span>6</span></td>
+                </tr>
+                <tr class="calender__content2-table-data calender__content2-table-data2">
+                    <td>
+                        <span>7</span>
+                        <li>Sales report from last month</li>
+                        <li>Prepare offers for clients</li>
+                    </td>
+                    <td><span>8</span></td>
+                    <td><span>9</span></td>
+                    <td><span>10</span></td>
+                    <td><span>11</span></td>
+                    <td><span>12</span></td>
+                    <td><span>13</span></td>
+                </tr>
+                <tr class="calender__content2-table-data calender__content2-table-data3">
+                    <td><span>14</span></td>
+                    <td><span>15</span></td>
+                    <td><span>16</span></td>
+                    <td>
+                        <span>17</span>
+                        <li>Sales report from last month</li>
+                        <li>Prepare offers for clients</li>
+                    </td>
+                    <td><span>18</span></td>
+                    <td><span>19</span></td>
+                    <td><span>20</span></td>
+                </tr>
+                <tr class="calender__content2-table-data calender__content2-table-data4">
+                    <td><span>21</span></td>
+                    <td><span>22</span></td>
+                    <td><span>23</span></td>
+                    <td><span>24</span></td>
+                    <td><span>25</span></td>
+                    <td><span>26</span></td>
+                    <td><span>27</span></td>
+                </tr>
+                <tr class="calender__content2-table-data calender__content2-table-data5">
+                    <td><span>28</span></td>
+                    <td><span>29</span></td>
+                    <td>
+                        <span>30</span>
+                        <li>Sales report from last month</li>
+                        <li>Prepare offers for clients</li>
+                    </td>
+                    <td><span>1</span></td>
+                    <td><span>2</span></td>
+                    <td><span>3</span></td>
+                    <td><span>4</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="/main.js"></script>
+</body>
+</html>
