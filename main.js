@@ -1,6 +1,7 @@
 const weekendBtn = document.querySelector('.calender__content1-box-weekends')
 const weekendTh = document.querySelectorAll('.calender__content2-table-day th:nth-child(n+6)')
 const weekendTd = document.querySelectorAll('.calender__content2-table-data td:nth-child(n+6)')
+const wrap = document.querySelector('.wrap')
 
 const addTaskBtn = document.querySelector('.calender__content1-box-addtask')
 const addTaskShow = document.querySelector('.background__body__popup-task')
@@ -30,36 +31,101 @@ const input = document.querySelector('.background__body__popup-task__box-main__t
 
     })
 
+    
+    //create element task
+function createElTask(){
+    let overlayPopup = document.createElement('div')
+    overlayPopup.setAttribute('class','calender__wrap-overlay')
+    let taskPopupElDiv = document.createElement('div')
+    taskPopupElDiv.setAttribute('class','background__body__popup-task')
+    taskPopupElDiv.innerHTML = `
+        <div class="background__body__popup-task__box">
+             <button class="background__body__popup-task__box-btnCategory">+ Category</button>
+             <div class="background__body__popup-task__box-date">
+                 <i class="fa-regular fa-calendar"></i>
+                 <p class="background__body__popup-task__box-date__data">12.14.2018</p>
+             </div>
+             <button class="background__body__popup-task__box-btnAddTask">Add Task</button>
+             <div class="background__body__popup-task__box-main">
+                 <div class="background__body__popup-task__box-main__title">
+                     <span class="background__body__popup-task__box-main__title-icon"><i class="fa-solid fa-check"></i></span>
+                     <h2 class="background__body__popup-task__box-main__title-header">Title of the task</h2>
+                 </div>
+                 <input type="text" class="background__body__popup-task__box-main__title-input" placeholder="Description...">
+             </div>
+         </div>
+    
+    `
+    wrap.appendChild(taskPopupElDiv)
+    wrap.appendChild(overlayPopup)
+}
     // TaskShow
 function showTask(){
         //hien thi task
+    createElTask()
     addTaskBtn.classList.add('calender__content1-box--active')
-    addTaskShow.classList.remove('hide')
-    overlay.classList.remove('hide')
-    input.focus()
+    document.querySelector('.background__body__popup-task__box-main__title-input').focus()
 }
     //  TaskHideOverlay
 function hideTask(){
       //an task
-    overlay.addEventListener('click',()=>{
-        addTaskShow.classList.add('hide')
-        overlay.classList.add('hide')
+        document.querySelector('.calender__wrap-overlay').addEventListener('click',()=>{
+        document.querySelector('.background__body__popup-task').remove()
         addTaskBtn.classList.remove('calender__content1-box--active')
-
+        document.querySelector('.calender__wrap-overlay').remove()
     })
-    addTask.addEventListener('click',()=>{
-        addTaskShow.classList.add('hide')
-        overlay.classList.add('hide')
+    document.querySelector('.background__body__popup-task__box-btnAddTask').addEventListener('click',()=>{
+        document.querySelector('.background__body__popup-task').remove()
         addTaskBtn.classList.remove('calender__content1-box--active')
+        document.querySelector('.calender__wrap-overlay').remove()
     })
 }
 
+const arrColor = [
+    {
+        'backgroundColor': 'var(--color-background1)',
+        'borderLeft': '3px solid var(--color-boder1)',
+        'color': 'var(--color-boder1)'
+    },
+    {
+        'backgroundColor': 'var(--color-background2)',
+        'borderLeft': '3px solid var(--color-boder2)',
+        'color': 'var(--color-boder2)'
+    },
+    {
+        'backgroundColor': 'var(--color-background3)',
+        'borderLeft': '3px solid var(--color-boder3)',
+        'color': 'var(--color-boder3)'
+    },
+    {
+        'backgroundColor': 'var(--color-background4)',
+        'borderLeft': '3px solid var(--color-boder4)',
+        'color': 'var(--color-boder4)'
+    },
+    {
+        'backgroundColor': 'var( --primary-background)',
+        'borderLeft': '3px solid var(--primary-color)',
+        'color': 'var(--primary-color)'
+    }
+]
+
     // DataInput
 function dataInput(td){
-    let li = document.createElement('li')
-    li.innerText = input.value
-    td.appendChild(li)
-    console.log(li)
+    li = document.createElement('li')
+    li.innerText = document.querySelector('.background__body__popup-task__box-main__title-input').value
+    if(document.querySelector('.background__body__popup-task__box-main__title-input').value==''){
+        alert('Vui lòng nhập task!')
+        return
+    }
+    const colorRandom = arrColor[Math.floor(Math.random()*6)]
+    td.style.backgroundColor = `${colorRandom.backgroundColor}`
+    td.style.borderLeft = `${colorRandom.borderLeft}`
+    td.style.color = `${colorRandom.color}`
+    const span = td.querySelector('span')
+    span.style.color = 'black'
+    console.log(colorRandom.backgroundColor)
+    return td.append(li)
+    
 }
 
     // btnShowTask
@@ -68,6 +134,9 @@ addTaskBtn.addEventListener('click',()=>{
     if(document.querySelector('.calender__content1-box-addtask.calender__content1-box--active')){
         //hien thi task
         showTask()
+        document.querySelector('.background__body__popup-task__box-btnAddTask').onclick = ()=>{
+            alert('Vui lòng chọn ngày!')
+        }
     }
     
     hideTask()
@@ -75,13 +144,12 @@ addTaskBtn.addEventListener('click',()=>{
 
     //showTaskTd
     
-addTaskTd.forEach((item)=>{
+addTaskTd.forEach((item,index)=>{
     
     item.addEventListener('click',()=>{
         showTask()
-        addTask.addEventListener('click',()=>{
+        document.querySelector('.background__body__popup-task__box-btnAddTask').addEventListener('click',()=>{
             dataInput(item)
-            input.value = ''
         })
         hideTask()
     })

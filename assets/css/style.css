@@ -10,6 +10,7 @@
     --color-background3: #fff5e9;
     --color-boder4: #f1637c;
     --color-background4: #f6dfe5;
+
 }
 
 *{
@@ -50,7 +51,7 @@ body{
     height: 100vh;
     top: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0);
 }
 
 .hide{
@@ -605,35 +606,6 @@ body{
     margin-left: 20px;
 }
 
-.calender__content2-table-data1 td:nth-of-type(7n+2){
-    background-color: var(--color-background1);
-    border-left: 3px solid var(--color-boder1);
-    color: var(--color-boder1);
-}
-
-.calender__content2-table-data1 td:nth-of-type(7n+4){
-    background-color: var(--color-background2);
-    border-left: 3px solid var(--color-boder2);
-    color: var(--color-boder2);
-}
-
-.calender__content2-table-data2 td:nth-of-type(7n+1){
-    background-color: var(--color-background3);
-    border-left: 3px solid var(--color-boder3);
-    color: var(--color-boder3);
-}
-
-.calender__content2-table-data3 td:nth-of-type(7n+4){
-    background-color: var(--color-background4);
-    border-left: 3px solid var(--color-boder4);
-    color: var(--color-boder4);
-}
-
-.calender__content2-table-data5 td:nth-of-type(7n+3){
-    background-color: var(--color-background1);
-    border-left: 3px solid var(--color-boder1);
-    color: var(--color-boder1);
-}
 
 
 
