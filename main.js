@@ -1,3 +1,6 @@
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
+
 const weekendBtn = document.querySelector('.calender__content1-box-weekends')
 const weekendTh = document.querySelectorAll('.calender__content2-table-day th:nth-child(n+6)')
 const weekendTd = document.querySelectorAll('.calender__content2-table-data td:nth-child(n+6)')
@@ -9,6 +12,7 @@ const overlay = document.querySelector('.calender__wrap-overlay')
 
 const addTaskTd = document.querySelectorAll('.calender__content2-table-data td')
 const addTask = document.querySelector('.background__body__popup-task__box-btnAddTask')
+const deleteTask = document.querySelector('.background__body__popup-task__box-btnDeleteTask')
 const input = document.querySelector('.background__body__popup-task__box-main__title-input')
     weekendBtn.addEventListener('click',()=>{
         weekendBtn.classList.toggle('calender__content1-box--active')
@@ -46,6 +50,7 @@ function createElTask(){
                  <p class="background__body__popup-task__box-date__data">12.14.2018</p>
              </div>
              <button class="background__body__popup-task__box-btnAddTask">Add Task</button>
+             <button class="background__body__popup-task__box-btnDeleteTask">Delete All Task</button>
              <div class="background__body__popup-task__box-main">
                  <div class="background__body__popup-task__box-main__title">
                      <span class="background__body__popup-task__box-main__title-icon"><i class="fa-solid fa-check"></i></span>
@@ -69,15 +74,20 @@ function showTask(){
     //  TaskHideOverlay
 function hideTask(){
       //an task
-        document.querySelector('.calender__wrap-overlay').addEventListener('click',()=>{
-        document.querySelector('.background__body__popup-task').remove()
+    $('.calender__wrap-overlay').addEventListener('click',()=>{
+        $('.background__body__popup-task').remove()
         addTaskBtn.classList.remove('calender__content1-box--active')
-        document.querySelector('.calender__wrap-overlay').remove()
+        $('.calender__wrap-overlay').remove()
     })
-    document.querySelector('.background__body__popup-task__box-btnAddTask').addEventListener('click',()=>{
-        document.querySelector('.background__body__popup-task').remove()
+    $('.background__body__popup-task__box-btnAddTask').addEventListener('click',()=>{
+        $('.background__body__popup-task').remove()
         addTaskBtn.classList.remove('calender__content1-box--active')
-        document.querySelector('.calender__wrap-overlay').remove()
+        $('.calender__wrap-overlay').remove()
+    })
+    $('.background__body__popup-task__box-btnDeleteTask').addEventListener('click',()=>{
+        $('.background__body__popup-task').remove()
+        addTaskBtn.classList.remove('calender__content1-box--active')
+        $('.calender__wrap-overlay').remove()
     })
 }
 
@@ -117,14 +127,15 @@ function dataInput(td){
         alert('Vui lòng nhập task!')
         return
     }
-    const colorRandom = arrColor[Math.floor(Math.random()*6)]
+    const colorRandom = arrColor[Math.floor(Math.random()*5)]
     td.style.backgroundColor = `${colorRandom.backgroundColor}`
     td.style.borderLeft = `${colorRandom.borderLeft}`
     td.style.color = `${colorRandom.color}`
     const span = td.querySelector('span')
     span.style.color = 'black'
-    console.log(colorRandom.backgroundColor)
-    return td.append(li)
+    const saveData = td.append(li)
+    
+    return saveData
     
 }
 
@@ -148,9 +159,19 @@ addTaskTd.forEach((item,index)=>{
     
     item.addEventListener('click',()=>{
         showTask()
-        document.querySelector('.background__body__popup-task__box-btnAddTask').addEventListener('click',()=>{
+        $('.background__body__popup-task__box-btnAddTask').addEventListener('click',()=>{
             dataInput(item)
         })
-        hideTask()
+        $('.background__body__popup-task__box-btnDeleteTask').addEventListener('click',()=>{
+            item.style.backgroundColor = 'unset'
+            item.style.borderLeft = 'unset'
+            item.querySelectorAll('li').forEach((li)=>{
+                li.remove()
+                
+                })
+        
+    })
+    hideTask()
+        
     })
 })

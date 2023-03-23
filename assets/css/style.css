@@ -112,6 +112,17 @@ body{
     bottom: 0;
     right: 0;
 }
+.background__body__popup-task__box-btnDeleteTask{
+    cursor: pointer;
+    border-style: none;
+    background-color: var(--color-boder4);
+    color: white;
+    padding: 5px 8px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
 .background__body__popup-task__box-main{
     margin-top: 40px;
@@ -576,7 +587,6 @@ body{
 
 .calender__content2-table-day th:nth-child(n+6){
     display: none;
-
 }
 
 .calender__content2-table-data td:nth-child(n+6){
@@ -605,6 +615,8 @@ body{
     font-size: 12px;
     margin-left: 20px;
 }
+
+
 
 
 
